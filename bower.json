@@ -1,0 +1,24 @@
+{
+  "name": "muralesLaPlata",
+  "homepage": "https://github.com/matias-pierobon/murales-la-plata",
+  "authors": [
+    "Matias Pierobon <matias.pierobonm@gmail.com>"
+  ],
+  "description": "",
+  "main": "web/app.php",
+  "moduleType": [],
+  "keywords": [
+    "laplata",
+    "murales"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/bower_components/",
+    "test",
+    "tests"
+  ]
+}

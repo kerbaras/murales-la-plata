@@ -25,6 +25,7 @@
     "angular": "~1.4.8",
     "angular-ui-router": "~0.2.15",
     "angular-material": "~1.0.0",
-    "angular-google-maps": "~2.2.1"
+    "angular-google-maps": "~2.2.1",
+    "angular-messages": "~1.4.8"
   }
 }

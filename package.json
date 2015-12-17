@@ -1,0 +1,25 @@
+{
+  "name": "muraleslaplata",
+  "version": "1.0.0",
+  "description": "muraleslaplata ==============",
+  "main": "web/app.php",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matias-pierobon/murales-la-plata.git"
+  },
+  "author": "Matias Pierobon <matias.pierobonm@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matias-pierobon/murales-la-plata/issues"
+  },
+  "homepage": "https://github.com/matias-pierobon/murales-la-plata#readme",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}

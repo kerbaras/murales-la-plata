@@ -2,26 +2,47 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Murales La Plata</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Roboto:400,100,300,700,900|Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('bower_components/angular-material/angular-material.min.css') }}" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="{{ asset('dist/styles.min.css') }}" media="screen" charset="utf-8">
   </head>
   <body ng-app="MuralesLaPlata" ng-cloak>
 
     {% raw %}
-      {{ 'hola mundo!' }}
+    <div ng-controller="MainController" ng-cloak class="main-page">
+      <md-button class="md-fab menu-btn" ng-click="toggleSidebar()">
+        <md-icon class="material-icons">menu</md-icon>
+      </md-button>
+      <md-sidenav class="md-sidenav-left md-whiteframe-6dp" md-component-id="left">
+        <md-toolbar>
+          <div class="md-toolbar-tools">
+            <h1><span>Murales la Plata</span></h1>
+            <span flex></span>
+            <md-button class="md-icon-button" aria-label="close" ng-click="toggleSidebar()">
+              <md-icon class="material-icons">chevron_left</md-icon>
+            </md-button>
+          </div>
+        </md-toolbar>
+        <md-content layout-padding>
+        </md-content>
+      </md-sidenav>
+      <div ui-view></div>
+    </div>
     {% endraw %}
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBftV0TYpM5bF7Wp3jzg9WphM75OrlUck8&" type="text/javascript"></script>
     <script src="{{ asset('bower_components/lodash/lodash.min.js') }}" charset="utf-8"></script>
     <script src="{{ asset('bower_components/angular/angular.min.js') }}" charset="utf-8"></script>
     <script src="{{ asset('bower_components/angular-animate/angular-animate.min.js') }}" charset="utf-8"></script>
     <script src="{{ asset('bower_components/angular-aria/angular-aria.min.js') }}" charset="utf-8"></script>
     <script src="{{ asset('bower_components/angular-messages/angular-messages.min.js') }}" charset="utf-8"></script>
     <script src="{{ asset('bower_components/angular-material/angular-material.min.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bower_components/angular-ui-router/release/angular-ui-router.min.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bower_components/angular-simple-logger/dist/index.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bower_components/angular-google-maps/dist/angular-google-maps_dev_mapped.min.js') }}" charset="utf-8"></script>
 
-    {% javascripts output="js/app.js"
-      '@AppBundle/Resources/public/js/app.js'
-    %}
-      <script src="{{ asset_url }}" charset="utf-8"></script>
-    {% endjavascripts %}
+    <script src="{{ asset('dist/app.min.js') }}" charset="utf-8"></script>
   </body>
 </html>

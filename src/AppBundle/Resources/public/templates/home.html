@@ -1,0 +1,21 @@
+<section class="main-container md-padding" layout="row" layout-wrap layout-align="center start">
+  <md-whiteframe class="md-whiteframe-18dp" flex-sm="100" flex-xs="100" flex="50"  layout="column">
+    <h1>Murales La Plata</h1>
+    <form ng-submit="$event.preventDefault()" name="searchForm">
+      <div layout-gt-xs="row">
+        <md-autocomplete flex required
+            md-input-name="buscar"
+            md-items="item in places"
+            md-item-text="item.nombre"
+            md-floating-label="Buscar Lugar">
+          <md-item-template>
+            <span md-highlight-text="ctrl.searchText">{{item.nombre}}</span>
+          </md-item-template>
+        </md-autocomplete>
+      </div>
+    </form>
+  </md-whiteframe>
+</section>
+<ui-gmap-google-map center="mapOptions.center" zoom="mapOptions.zoom">
+  <ui-gmap-markers models="places" coords="'center'" title="'nombre'" options="markerOptions"></ui-gmap-marker>
+</ui-gmap-google-map>

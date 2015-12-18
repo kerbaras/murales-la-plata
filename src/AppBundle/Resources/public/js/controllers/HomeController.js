@@ -1,7 +1,8 @@
 muralesLaPlata.controller('HomeController', [
   '$scope',
+  '$location',
   'PlaceService',
-  function ($scope, PlaceService) {
+  function ($scope, $location, PlaceService) {
 
     PlaceService.getAll().then(function (response) {
       $scope.places = response.data;
@@ -13,11 +14,19 @@ muralesLaPlata.controller('HomeController', [
     };
 
     $scope.markerOptions = {
-        animation: google.maps.Animation.DROP
-      };
+      animation: google.maps.Animation.DROP
+    };
 
-    $scope.log = function (ob) {
-      console.log(ob);
+    $scope.selectedItemChange = function (place) {
+      $location.path('/places/' + place.id);
+    };
+
+    $scope.searchTextChange = function (text) {
+
+    };
+
+    $scope.querySearch = function (query) {
+      return query ? self.states.filter( createFilterFor(query) ) : self.states;
     }
   }
 ]);

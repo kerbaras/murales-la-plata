@@ -16,6 +16,30 @@ muralesLaPlata.config([
         url: "/home",
         templateUrl: "dist/templates/home.html",
         controller: "HomeController"
+      })
+      .state('main', {
+        abstract: true,
+        templateUrl: "dist/templates/layout.html",
+        controller: "MainController"
+      })
+      .state('main.places', {
+        url: "/places",
+        abstract: true,
+        templateUrl: "dist/templates/places.html",
+      })
+      .state('main.places.list', {
+        url: "/",
+        templateUrl: "dist/templates/list.html",
+        controller: "PlacesListController"
+      })
+      .state('main.places.place', {
+        url: "/:placeid",
+        templateUrl: "dist/templates/place.html",
+        controller: "PlaceController"
+      })
+      .state('main.about', {
+        url: "/about",
+        templateUrl: "dist/templates/about.html",
       });
 
     uiGmapGoogleMapApiProvider.configure({

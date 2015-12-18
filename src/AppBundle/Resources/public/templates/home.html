@@ -1,21 +1,28 @@
+<md-button class="md-fab menu-btn" aria-label="Menu" ng-click="$parent.toggleSidebar()">
+  <md-icon class="material-icons">menu</md-icon>
+</md-button>
 <section class="main-container md-padding" layout="row" layout-wrap layout-align="center start">
   <md-whiteframe class="md-whiteframe-18dp" flex-sm="100" flex-xs="100" flex="50"  layout="column">
     <h1>Murales La Plata</h1>
     <form ng-submit="$event.preventDefault()" name="searchForm">
       <div layout-gt-xs="row">
         <md-autocomplete flex required
-            md-input-name="buscar"
-            md-items="item in places"
-            md-item-text="item.nombre"
-            md-floating-label="Buscar Lugar">
+          md-selected-item="selectedItem"
+          md-search-text-change="searchTextChange(searchText)"
+          md-search-text="searchText"
+          md-selected-item-change="selectedItemChange(place)"
+          md-items="place in places | filter:searchText"
+          md-item-text="place.nombre"
+          md-min-length="0"
+          md-floating-label="Buscar lugar">
           <md-item-template>
-            <span md-highlight-text="ctrl.searchText">{{item.nombre}}</span>
+            <span md-highlight-text="searchText" md-highlight-flags="^i">{{ place.nombre }} - {{ place.direccion }}</span>
           </md-item-template>
         </md-autocomplete>
       </div>
     </form>
   </md-whiteframe>
 </section>
-<ui-gmap-google-map center="mapOptions.center" zoom="mapOptions.zoom">
+<ui-gmap-google-map center="mapOptions.center" zoom="mapOptions.zoom" id="mainMap">
   <ui-gmap-markers models="places" coords="'center'" title="'nombre'" options="markerOptions"></ui-gmap-marker>
 </ui-gmap-google-map>

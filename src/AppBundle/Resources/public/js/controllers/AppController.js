@@ -5,8 +5,8 @@ muralesLaPlata.controller('AppController', [
   function ($scope, $mdSidenav, $location) {
 
     $scope.menuItems = [
-      { name:"Inicio", icon: "home", url:"/home" },
-      { name:"Lugares", icon: "view_list", url:"/places" },
+      { name:"Inicio", icon: "home", url:"/" },
+      { name:"Murales", icon: "view_quilt", url:"/murales/" },
       { name:"Nosotros", icon: "info", url:"/about" },
     ];
 

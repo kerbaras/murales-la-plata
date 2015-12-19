@@ -1,0 +1,23 @@
+md-card{
+
+  &:first-child{
+    margin-top: 0;
+  }
+
+  .carousel {
+    padding: 0;
+    margin: 0;
+    height: 400px;
+
+    &:first-child{
+      border-radius: 2px 2px 0 0;
+      &>ul[rn-carousel]{
+        border-radius: 2px 2px 0 0;
+      }
+    }
+
+    &>ul[rn-carousel]{
+      margin: 0;
+    }
+  }
+}

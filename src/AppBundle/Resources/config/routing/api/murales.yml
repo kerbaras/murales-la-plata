@@ -1,0 +1,14 @@
+api_murales:
+    path:     /
+    defaults: { _controller: AppBundle:API\Murales:index }
+    methods:  [GET]
+api_murales_create:
+    path:     /
+    defaults: { _controller: AppBundle:API\Murales:create }
+    methods:  [POST]
+api_murales_remove:
+    path:     /{id}
+    defaults: { _controller: AppBundle:API\Murales:remove }
+    methods:  [DELETE]
+    requirements:
+      id:     \d+

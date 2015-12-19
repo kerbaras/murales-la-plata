@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <title>Murales La Plata</title>
     <meta name="viewport" content="initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Roboto:400,100,300,700,900|Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('bower_components/angular-material/angular-material.min.css') }}" media="screen" charset="utf-8">
+    <link href="https://fonts.googleapis.com/icon?family=Roboto:400,100,300,700,900|Material+Icons|Rock+Salt" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('bower_components/angular-material/angular-material.min.css') }}"charset="utf-8">
+    <link rel="stylesheet" href="{{ asset('bower_components/angular-carousel/dist/angular-carousel.min.css') }}" charset="utf-8">
     <link rel="stylesheet" href="{{ asset('dist/styles.min.css') }}" media="screen" charset="utf-8">
   </head>
   <body ng-app="MuralesLaPlata" ng-cloak>
@@ -13,7 +14,7 @@
     {% raw %}
     <div ng-controller="AppController" ng-cloak class="main-page">
       <md-sidenav class="md-sidenav-left md-whiteframe-6dp" md-component-id="left">
-        <md-toolbar>
+        <md-toolbar class="md-hue-0">
           <div class="md-toolbar-tools">
             <h1><span>Murales la Plata</span></h1>
             <span flex></span>
@@ -45,6 +46,8 @@
     <script src="{{ asset('bower_components/angular-ui-router/release/angular-ui-router.min.js') }}" charset="utf-8"></script>
     <script src="{{ asset('bower_components/angular-simple-logger/dist/index.js') }}" charset="utf-8"></script>
     <script src="{{ asset('bower_components/angular-google-maps/dist/angular-google-maps_dev_mapped.min.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bower_components/angular-touch/angular-touch.min.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bower_components/angular-carousel/dist/angular-carousel.min.js') }}" charset="utf-8"></script>
 
     <script src="{{ asset('dist/app.min.js') }}" charset="utf-8"></script>
   </body>

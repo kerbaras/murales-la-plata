@@ -1,4 +1,4 @@
-var muralesLaPlata = angular.module('MuralesLaPlata', ['ngMaterial', 'ui.router', 'uiGmapgoogle-maps']);
+var muralesLaPlata = angular.module('MuralesLaPlata', ['ngMaterial', 'ui.router', 'uiGmapgoogle-maps', 'angular-carousel']);
 
 muralesLaPlata.config([
   '$mdThemingProvider',
@@ -7,39 +7,45 @@ muralesLaPlata.config([
   'uiGmapGoogleMapApiProvider',
   function($mdThemingProvider, $stateProvider, $urlRouterProvider, uiGmapGoogleMapApiProvider) {
     $mdThemingProvider.theme('default')
-      .primaryPalette('indigo')
+      .primaryPalette('blue')
       .accentPalette('pink');
 
-    $urlRouterProvider.otherwise("/home");
+    $urlRouterProvider.otherwise("/");
     $stateProvider
       .state('home', {
-        url: "/home",
-        templateUrl: "dist/templates/home.html",
+        url: "/",
+        templateUrl: "/dist/templates/home.html",
         controller: "HomeController"
       })
       .state('main', {
         abstract: true,
-        templateUrl: "dist/templates/layout.html",
+        templateUrl: "/dist/templates/layout.html",
         controller: "MainController"
       })
-      .state('main.places', {
-        url: "/places",
+      .state('places', {
+        parent: 'main',
+        url: "/murales",
         abstract: true,
-        templateUrl: "dist/templates/places.html",
+        templateUrl: "/dist/templates/places.html",
+        controller: "PlacesController"
       })
-      .state('main.places.list', {
+      .state('placesList', {
+        parent: 'places',
         url: "/",
-        templateUrl: "dist/templates/list.html",
+        templateUrl: "/dist/templates/listPlaces.html",
         controller: "PlacesListController"
       })
-      .state('main.places.place', {
-        url: "/:placeid",
-        templateUrl: "dist/templates/place.html",
+      .state('place', {
+        parent: 'places',
+        url: "/{id:int}",
+        templateUrl: "/dist/templates/place.html",
         controller: "PlaceController"
       })
-      .state('main.about', {
+      .state('about', {
+        parent: 'main',
         url: "/about",
-        templateUrl: "dist/templates/about.html",
+        templateUrl: "/dist/templates/about.html",
+        controller: "AboutController"
       });
 
     uiGmapGoogleMapApiProvider.configure({

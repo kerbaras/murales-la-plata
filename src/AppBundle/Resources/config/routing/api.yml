@@ -1,0 +1,7 @@
+api_homepage:
+    path:     /
+    defaults: { _controller: AppBundle:API\Main:index }
+
+api_murales_ref:
+    resource: "@AppBundle/Resources/config/routing/api/murales.yml"
+    prefix:   /murales

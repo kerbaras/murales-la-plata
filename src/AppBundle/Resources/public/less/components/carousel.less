@@ -1,0 +1,48 @@
+.carousel{
+  height: 500px;
+  padding-bottom: 45px;
+  position: relative;
+
+  &>ul[rn-carousel]{
+    height: 100%;
+    cursor: grab;
+
+    &:active{
+      cursor: grabbing;
+    }
+
+    .bgimage{
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+
+      background-position: top left;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color: #333;
+    }
+  }
+
+  &>div[rn-carousel-indicators]{
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+
+    span{
+      margin: 0 12px;
+      font-size: 26px;
+      line-height: 16px;
+
+      &.active{
+        color: #E91E63;
+      }
+
+    }
+  }
+}

@@ -2,7 +2,7 @@
   <md-icon class="material-icons">menu</md-icon>
 </md-button>
 <section class="main-container md-padding" layout="row" layout-wrap layout-align="center start">
-  <md-whiteframe class="md-whiteframe-18dp" flex-sm="100" flex-xs="100" flex="50"  layout="column">
+  <md-whiteframe class="md-whiteframe-18dp" flex="100" flex-sm="100" flex-xs="100" flex-md="50"  flex-lg="45" flex-xl="35"  layout="column">
     <h1>Murales La Plata</h1>
     <form ng-submit="$event.preventDefault()" name="searchForm">
       <div layout-gt-xs="row">
@@ -24,5 +24,6 @@
   </md-whiteframe>
 </section>
 <ui-gmap-google-map center="mapOptions.center" zoom="mapOptions.zoom" id="mainMap">
-  <ui-gmap-markers models="places" coords="'center'" title="'nombre'" options="markerOptions"></ui-gmap-marker>
+  <ui-gmap-markers models="places" coords="'center'" title="'nombre'"
+                   options="markerOptions" click="markerClick"></ui-gmap-marker>
 </ui-gmap-google-map>

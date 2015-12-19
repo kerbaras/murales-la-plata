@@ -1,3 +1,26 @@
-<section layout-padding>
-<h1>Nosotros</h1>
+<section class="page-content">
+  <header>
+    <div layout="row" layout-wrap layout-align="center start">
+      <div flex="100" flex-md="50" flex-lg="70" flex-xl="70" layout="column">
+        <h1 class="md-display-3">Nosotros</h1>
+      </div>
+    </div>
+  </header>
+  <section layout-padding>
+    <div layout="row" layout-wrap layout-align="center start">
+      <div flex="100" flex-md="50" flex-lg="70" flex-xl="70" layout="column">
+        <p class="md-title">We challenged ourselves to create a visual language for our users that synthesizes the classic principles of good design with the innovation and possibility of technology and science. This is material design. This spec is a living document that
+          will be updated as we continue to develop the tenets and specifics of material design.</p>
+
+        <div class="carousel">
+          <ul rn-carousel rn-carousel-index="carouselIndex" rn-carousel-auto-slide rn-carousel-pause-on-hover rn-carousel-buffered rn-carousel-transition="slide">
+            <li ng-repeat="slide in slides track by slide.id" ng-class="'id-' + slide.id">
+              <div ng-style="{'background-image': 'url(' + slide.img + ')'}" class="bgimage"></div>
+            </li>
+          </ul>
+          <div rn-carousel-indicators ng-if="slides.length > 1" slides="slides" rn-carousel-index="carouselIndex"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 </section>

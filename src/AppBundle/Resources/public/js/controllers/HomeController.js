@@ -10,15 +10,19 @@ muralesLaPlata.controller('HomeController', [
 
     $scope.mapOptions = {
       center: {latitude: -34.921330, longitude: -57.954464},
-      zoom: 14
+      zoom: 15
     };
 
     $scope.markerOptions = {
       animation: google.maps.Animation.DROP
     };
 
+    $scope.markerClick = function (marker, event, place) {
+      $scope.selectedItemChange(place);
+    };
+
     $scope.selectedItemChange = function (place) {
-      $location.path('/places/' + place.id);
+      $location.path('/murales/' + place.id);
     };
 
     $scope.searchTextChange = function (text) {

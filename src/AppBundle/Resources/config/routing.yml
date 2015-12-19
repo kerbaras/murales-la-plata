@@ -1,3 +1,6 @@
 app_homepage:
     path:     /
     defaults: { _controller: AppBundle:Main:index }
+api_ref:
+    resource: "@AppBundle/Resources/config/routing/api.yml"
+    prefix:   /api

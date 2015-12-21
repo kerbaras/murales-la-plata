@@ -5,7 +5,7 @@ muralesLaPlata.controller('HomeController', [
   function ($scope, $location, PlaceService) {
 
     PlaceService.getAll().then(function (response) {
-      $scope.places = response;
+      $scope.murales = response;
     });
 
     $scope.mapOptions = {

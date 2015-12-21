@@ -10,13 +10,13 @@
           md-selected-item="selectedItem"
           md-search-text-change="searchTextChange(searchText)"
           md-search-text="searchText"
-          md-selected-item-change="selectedItemChange(place)"
-          md-items="place in places | filter:searchText"
-          md-item-text="place.nombre"
+          md-selected-item-change="selectedItemChange(mural)"
+          md-items="mural in murales | filter:searchText"
+          md-item-text="mural.nombre"
           md-min-length="0"
-          md-floating-label="Buscar lugar">
+          md-floating-label="Buscar Mural">
           <md-item-template>
-            <span md-highlight-text="searchText" md-highlight-flags="^i">{{ place.nombre }} - {{ place.direccion }}</span>
+            <span md-highlight-text="searchText" md-highlight-flags="^i">{{ mural.name }} - {{ mural.address }}</span>
           </md-item-template>
         </md-autocomplete>
       </div>
@@ -24,6 +24,6 @@
   </md-whiteframe>
 </section>
 <ui-gmap-google-map center="mapOptions.center" zoom="mapOptions.zoom" id="mainMap">
-  <ui-gmap-markers models="places" coords="'center'" title="'nombre'"
+  <ui-gmap-markers models="murales | filter:searchText" coords="'center'" title="'nombre'"
                    options="markerOptions" click="markerClick"></ui-gmap-marker>
 </ui-gmap-google-map>

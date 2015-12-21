@@ -10,13 +10,13 @@
           md-selected-item="selectedItem"
           md-search-text-change="searchTextChange(searchText)"
           md-search-text="searchText"
-          md-selected-item-change="selectedItemChange(mural)"
-          md-items="mural in murales | filter:searchText"
-          md-item-text="mural.nombre"
+          md-selected-item-change="selectedItemChange(item)"
+          md-items="item in murales | filter:searchText"
+          md-item-text="item.nombre"
           md-min-length="0"
           md-floating-label="Buscar Mural">
           <md-item-template>
-            <span md-highlight-text="searchText" md-highlight-flags="^i">{{ mural.name }} - {{ mural.address }}</span>
+            <span md-highlight-text="searchText" md-highlight-flags="^i">{{ item.name }} - {{ item.address }}</span>
           </md-item-template>
         </md-autocomplete>
       </div>

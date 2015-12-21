@@ -10,10 +10,10 @@
     <div layout="row" layout-wrap layout-align="center start">
       <div flex="100" flex-md="50" flex-lg="70" flex-xl="70" layout="column">
         <div layout="row" layout-wrap layout-align="center start">
-          <div flex="100" flex-md="50" flex-lg="70" flex-xl="70" layout="column">
+          <div flex="100" flex-lg="70" flex-xl="70" layout="column">
             <div ui-view></div>
           </div>
-          <div flex="100" flex-md="50" flex-lg="30" flex-xl="30" layout="column">
+          <div flex="100" flex-lg="30" flex-xl="30" layout="column">
             <panel class="md-whiteframe-z1">
               <md-toolbar md-scroll-shrink>
                 <div class="md-toolbar-tools">Ultimos Murales</div>
@@ -21,10 +21,10 @@
               <section class="content">
                 <md-list ng-cloak>
                   <md-list-item class="md-2-line" ng-repeat="place in places" ng-click="go(place.id)">
-                    <img ng-src="{{ place.fotos[0] }}" class="md-avatar" alt="{{ place.nombre }}">
+                    <img ng-src="{{ place.photos[0] }}" class="md-avatar" alt="{{ place.name }}">
                     <div class="md-list-item-text">
-                      <h3>{{ place.nombre }}</h3>
-                      <p>{{ place.direcciones }}</p>
+                      <h3>{{ place.name }}</h3>
+                      <p>{{ place.address }}</p>
                     </div>
                   </md-list-item>
                 </md-list>

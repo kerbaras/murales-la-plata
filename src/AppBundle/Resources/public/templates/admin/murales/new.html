@@ -1,0 +1,40 @@
+<section class="md-whiteframe-z1">
+  <md-content layout-padding>
+      <md-input-container class="md-block">
+        <label>Nombre del Mural</label>
+        <input ng-model="mural.name">
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label>Descripción</label>
+        <input ng-model="mural.description">
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label>Dirección</label>
+        <input ng-model="mural.address">
+      </md-input-container>
+
+      <div class="form-map" >
+        <ui-gmap-google-map center='mapOptions.center' zoom='mapOptions.zoom'>
+          <ui-gmap-marker idKey="1" coords="mural.center" options="marker.options"
+            events="marker.events"><ui-gmap-marker>
+        </ui-gmap-google-map>
+      </div>
+
+
+      <md-input-container class="md-block">
+        <label>Nueva Foto</label>
+        <input ng-model="photoTmp" ng-keypress="onPhotoKeyPress($event)">
+      </md-input-container>
+
+      <md-input-container ng-if="mural.photos.length > 0" class="md-block">
+        <img ng-src="{{ photo }}" ng-click="removePhoto($index)" width="80px"
+             ng-repeat="photo in mural.photos track by $index" />
+      </md-input-container>
+
+      <div  layout="row" layout-align="end center">
+        <span flex></span>
+        <md-button ng-click="cancel()" class="md-warn">Cancelar</md-button>
+        <md-button ng-click="submit()" class="md-raised md-primary">Agregar</md-button>
+      </div>
+  </md-content>
+</section>

@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="{{ asset('bower_components/angular-carousel/dist/angular-carousel.min.css') }}" charset="utf-8">
     <link rel="stylesheet" href="{{ asset('dist/styles.min.css') }}" media="screen" charset="utf-8">
   </head>
-  <body ng-app="MuralesLaPlata" ng-cloak>
+  <body ng-app="MuralesLaPlata" ng-cloak id="body">
 
     {% raw %}
     <div ng-controller="AppController" ng-cloak class="main-page">
       <md-sidenav class="md-sidenav-left md-whiteframe-6dp" md-component-id="left">
-        <md-toolbar class="md-hue-0">
+        <md-toolbar>
           <div class="md-toolbar-tools">
             <h1><span>Murales la Plata</span></h1>
             <span flex></span>
@@ -22,12 +22,29 @@
               <md-icon class="material-icons">chevron_left</md-icon>
             </md-button>
           </div>
+          <div class="toolbar-content">
+        		<img src="https://lh3.googleusercontent.com/-_mHhaRP_Vrg/AAAAAAAAAAI/AAAAAAAAAAA/jb6CP_8QPY0/s96-c-mo/photo.jpg">
+            <div class="title">
+              <span class="md-headline">Matias Pierobon Marcos</span>
+              <span class="md-subhead">Administrador</span>
+            </div>
+          </div>
         </md-toolbar>
         <md-content>
           <md-list ng-cloak>
-            <md-list-item ng-repeat="item in menuItems" ng-click="go(item.url)">
+            <md-list-item ng-repeat="item in menuItems" ng-click="go(item.state)">
               <md-icon class="material-icons">{{ item.icon }}</md-icon>
               <p>{{ item.name }}</p>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item ng-repeat="item in adminMenu" ng-click="go(item.state)">
+              <md-icon class="material-icons">{{ item.icon }}</md-icon>
+              <p>{{ item.name }}</p>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item ng-click="go('about')">
+              <md-icon class="material-icons">exit_to_app</md-icon>
+              <p>Cerrar Sesión</p>
             </md-list-item>
           </md-list>
         </md-content>
@@ -39,6 +56,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBftV0TYpM5bF7Wp3jzg9WphM75OrlUck8&" type="text/javascript"></script>
     <script src="{{ asset('bower_components/lodash/lodash.min.js') }}" charset="utf-8"></script>
     <script src="{{ asset('bower_components/angular/angular.min.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bower_components/angular-resource/angular-resource.min.js') }}" charset="utf-8"></script>
     <script src="{{ asset('bower_components/angular-animate/angular-animate.min.js') }}" charset="utf-8"></script>
     <script src="{{ asset('bower_components/angular-aria/angular-aria.min.js') }}" charset="utf-8"></script>
     <script src="{{ asset('bower_components/angular-messages/angular-messages.min.js') }}" charset="utf-8"></script>

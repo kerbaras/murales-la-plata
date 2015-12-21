@@ -4,6 +4,7 @@ namespace AppBundle\Controller\API;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Mural;
 
@@ -12,79 +13,100 @@ class MuralesController extends Controller
     public function indexAction()
     {
       $murales = $this->getDoctrine()->getRepository('AppBundle:Mural')->findAll();
-
       $m = array();
       foreach ($murales as $key => $mural) {
         $m[] = $mural->toArray();
       }
-
       $response = new JsonResponse();
-      $response->setData(array(
-        'data' => $m
-      ));
+      $response->setData($m);
       return $response;
     }
 
     public function createAction(Request $request)
     {
-      // NOTE: Se esperan estos parametros
-      $params = array(
-        'name' => 'Otro Titulo',
-        'description' => 'Una descripcion',
-        'address' => 'Calle 10 e/ 55 y 54',
-        'center' => array(
-          'latitude'=> -34.920000,
-          'longitude'=> -57.950004
-        ),
-        'photos' => array(
-          'https://scontent-gru2-1.xx.fbcdn.net/hphotos-xta1/t31.0-8/12027331_712313182236637_6771689211231978128_o.jpg'
-        )
-      );
+
+      $req = json_decode($request->getContent());
 
       $mural = new Mural();
-
       $mural
-        ->setName($params['name'])
-        ->setDescription($params['description'])
-        ->setAddress($params['address'])
-        ->setLatitude($params['center']['latitude'])
-        ->setLongitude($params['center']['longitude'])
-        ->setPhotos($params['photos']);
+        ->setName($req->name)
+        ->setDescription($req->description)
+        ->setAddress($req->address)
+        ->setLatitude($req->center->latitude)
+        ->setLongitude($req->center->longitude)
+        ->setPhotos($req->photos);
 
       $em = $this->getDoctrine()->getManager();
-
       $em->persist($mural);
+
 
       $response = new JsonResponse();
 
-      try {
-        // NOTE: Descomentar
-        //$em->flush();
 
+        $em->flush();
         $response->setStatusCode(201);
         $response->setData(array(
           'status' => "Created",
           'code' => 201
         ));
-      } catch (Exception $e) {
+      /*} catch (Exception $e) {
         $response->setData(array(
           'error' => $e
         ));
-      }
+      }*/
       return $response;
+    }
+
+    public function showAction($id)
+    {
+      $mural = $this->getDoctrine()->getRepository('AppBundle:Mural')->find($id);
+      if (!$mural) {
+        throw $this->createNotFoundException(
+            'No mural found for id '. $id
+        );
+      }
+      $response = new JsonResponse();
+      $response->setData( $mural->toArray() );
+      return $response;
+    }
+
+    public function editAction(Request $request, $id)
+    {
+      $em = $this->getDoctrine()->getManager();
+      $mural = $em->getRepository('AppBundle:Mural')->find($id);
+      if (!$mural) {
+        throw $this->createNotFoundException(
+            'No mural found for id '. $id
+        );
+      }
+      $mural
+        ->setName($request->request->get('name'))
+        ->setDescription($request->request->get('description'))
+        ->setAddress($request->request->get('address'))
+        ->setLatitude($request->request->get('center')['latitude'])
+        ->setLongitude($request->request->get('center')['longitude'])
+        ->setPhotos($request->request->get('photos'));
+      $em->persist($mural);
+      $response = new JsonResponse();
+      $response->setStatusCode(200);
+      $response->setData(array(
+        'status' => "Updated",
+        'code' => 200
+      ));
     }
 
     public function removeAction($id){
       $em = $this->getDoctrine()->getManager();
-
       $mural = $em->getRepository('AppBundle:Mural')->find($id);
-
+      if (!$mural) {
+        throw $this->createNotFoundException(
+            'No mural found for id '. $id
+        );
+      }
       $em->remove($mural);
-
       $response = new JsonResponse();
 
       try {
-        // NOTE: Descomentar
         $em->flush();
         $response->setStatusCode(200);
         $response->setData(array(
@@ -96,7 +118,6 @@ class MuralesController extends Controller
           'error' => $e
         ));
       }
-
       return $response;
     }
 

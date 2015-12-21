@@ -1,18 +1,26 @@
 @import "components/carousel";
 @import "components/cards";
-
-#headerBar{
+@import "components/toolbar";
+@import "components/tables";
+#headerBar {
   padding-right: 10px;
   position: fixed;
 }
-
-.main-content{
+.main-content {
   padding-top: 48px;
-}
+  .prime-btn {
+    position: fixed;
+    right: 30px;
+    bottom: 50px;
+  }
 
-.main-page{
-  #mainMap{
-    .angular-google-map-container{
+  .form-map .angular-google-map-container {
+    height: 300px;
+  }
+}
+.main-page {
+  #mainMap {
+    .angular-google-map-container {
       position: absolute;
       top: 0;
       left: 0;
@@ -21,30 +29,26 @@
       z-index: 0;
     }
   }
-
-  .menu-btn{
+  .menu-btn {
     position: absolute;
     right: 25px;
     top: 15px;
   }
-
-  .main-container{
+  .main-container {
     z-index: 1;
     padding-top: 70px;
-
-    md-whiteframe{
+    md-whiteframe {
       z-index: 1;
       padding: 20px 25px;
       background-color: #fff;
-      background-image: url('https://scontent-gru2-1.xx.fbcdn.net/hphotos-xfa1/t31.0-8/s2048x2048/11807584_684277425040213_4547215186238814438_o.jpg');
+      background-image: url("https://scontent-gru2-1.xx.fbcdn.net/hphotos-xfa1/t31.0-8/s2048x2048/11807584_684277425040213_4547215186238814438_o.jpg");
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
       text-align: center;
-      color: #FF80AB;
+      color: #ff80ab;
       border-radius: 7px;
-
-      h1{
+      h1 {
         display: block;
         font-family: 'Rock Salt', cursive;
         font-size: 2.2em;
@@ -54,14 +58,11 @@
     }
   }
 }
-
-
-.page-content{
-  & > header{
-    background: #64B5F6;
+.page-content {
+  & > header {
+    background: #64b5f6;
     padding: 115px 16px 70px;
-
-    h1{
+    h1 {
       color: #fff;
       font-weight: 400;
       line-height: 1.5;

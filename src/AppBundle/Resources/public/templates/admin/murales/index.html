@@ -1,0 +1,38 @@
+<md-input-container class="md-block" flex>
+  <label>Buscar Mural</label>
+  <input ng-model="searchText">
+</md-input-container>
+
+<table class="bordered striped highlight">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Direccion</th>
+      <th width="340px">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="mural in murales | filter:searchText as results">
+      <td>{{ mural.name }}</td>
+      <td>{{ mural.address }}</td>
+      <td>
+        <md-button class="md-primary" aria-label="Editar">
+          <md-icon class="material-icons">edit</md-icon>
+        </md-button>
+        <md-button aria-label="Ver" ng-click="go(mural.id)">
+          <md-icon class="material-icons">search</md-icon>
+        </md-button>
+        <md-button class="md-warn" aria-label="Eliminar" ng-click="remove(mural)">
+          <md-icon class="material-icons">delete</md-icon>
+        </md-button>
+      </td>
+    </tr>
+    <tr ng-if="results.length == 0">
+      <td colspan="3">No hay murales para mostrar!</td>
+    </tr>
+  </tbody>
+</table>
+
+<md-button class="prime-btn md-fab" aria-label="Nuevo Mural" ng-click="new()">
+  <md-icon class="material-icons">add</md-icon>
+</md-button>

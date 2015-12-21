@@ -1,26 +1,25 @@
 <div layout="row" layout-wrap layout-align="center start">
   <md-input-container class="md-block" flex="90">
-    <label>First name</label>
-    <input ng-model="searchText">
+    <label>Buscar Mural</label>
+    <input ng-model="searchText" />
   </md-input-container>
-  
-  <md-card flex="90" ng-repeat="place in places | filter:searchText">
-    <div class="carousel">
-      <ul rn-carousel rn-carousel-index="place.carouselIndex" rn-carousel-auto-slide rn-carousel-pause-on-hover >
-        <li ng-repeat="foto in place.fotos track by $index" ng-class="'id-' + $index">
-          <div ng-style="{'background-image': 'url(' + foto + ')'}" class="bgimage"></div>
+
+  <md-card flex="90" flex-lg="45" flex-xl="30" ng-repeat="place in places | filter:searchText">
+    <div class="carousel" style="height: 300px;">
+      <ul rn-carousel rn-carousel-index="place.carouselIndex" rn-carousel-auto-slide rn-carousel-pause-on-hover>
+        <li ng-repeat="photo in place.photos track by $index" ng-class="'id-' + $index">
+          <div ng-style="{'background-image': 'url(' + photo + ')'}" class="bgimage"></div>
         </li>
       </ul>
-      <div rn-carousel-indicators ng-if="place.fotos.length > 1" slides="place.fotos" rn-carousel-index="place.carouselIndex"></div>
+      <div rn-carousel-indicators ng-if="place.photos.length > 1" slides="place.photos" rn-carousel-index="place.carouselIndex"></div>
     </div>
     <md-card-title>
       <md-card-title-text>
-        <span class="md-headline">{{ place.nombre }}</span>
+        <a class="md-headline" href="#/murales/{{ place.id }}">{{ place.name }}</a>
       </md-card-title-text>
     </md-card-title>
     <md-card-content>
-      <p>{{ place.direccion }}</p>
-      <p>{{ place.descripcion }}</p>
+      <p>{{ place.address }}</p>
     </md-card-content>
   </md-card>
 </div>

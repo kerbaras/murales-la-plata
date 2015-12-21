@@ -2,10 +2,26 @@ api_murales:
     path:     /
     defaults: { _controller: AppBundle:API\Murales:index }
     methods:  [GET]
+
 api_murales_create:
     path:     /
     defaults: { _controller: AppBundle:API\Murales:create }
     methods:  [POST]
+
+api_murales_GET:
+    path:     /{id}
+    defaults: { _controller: AppBundle:API\Murales:show }
+    methods:  [GET]
+    requirements:
+      id:     \d+
+
+api_murales_edit:
+    path:     /{id}
+    defaults: { _controller: AppBundle:API\Murales:edit }
+    methods:  [PUT]
+    requirements:
+      id:     \d+
+
 api_murales_remove:
     path:     /{id}
     defaults: { _controller: AppBundle:API\Murales:remove }

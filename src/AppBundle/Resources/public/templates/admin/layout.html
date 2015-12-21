@@ -1,0 +1,37 @@
+<md-toolbar id="headerBar" class="md-whiteframe-z1">
+  <div class="md-toolbar-tools" layout-padding>
+    <md-button class="md-icon-button" aria-label="Menu" ng-click="$parent.toggleSidebar()">
+      <md-icon class="material-icons">menu</md-icon>
+    </md-button>
+    <h2>
+      <span>Admin :: Murales La Plata</span>
+    </h2>
+    <span flex></span>
+    <!--
+    <md-fab-speed-dial ng-hide="share.hidden" md-direction="left" md-open="share.isOpen"
+                       class="md-scale md-fab md-primary" ng-class="{ 'md-hover-full': share.hover }"
+                       ng-mouseenter="share.isOpen=true" ng-mouseleave="share.isOpen=false">
+      <md-fab-trigger aria-expanded="false">
+        <md-button aria-label="menu" class="md-icon-button">
+          <md-tooltip md-direction="bottom" md-visible="tooltipVisible">Compartir</md-tooltip>
+          <md-icon class="material-icons">share</md-icon>
+        </md-button>
+      </md-fab-trigger>
+      <md-fab-actions>
+        <div ng-repeat="item in share.items" style="opacity: 0;">
+          <md-button aria-label="{{ item.nombre }}" class="md-fab md-raised md-mini" ng-style="{ 'background-color' : item.color }">
+            <md-tooltip md-direction="bottom" md-autohide="true">
+              {{ item.nombre }}
+            </md-tooltip>
+            <md-icon md-svg-src="{{ item.img }}" aria-label="{{ item.nombre }}"></md-icon>
+          </md-button>
+        </div>
+      </md-fab-actions>
+    </md-fab-speed-dial>
+    -->
+    <md-button class="md-raised md-primary">Iniciar sesion</md-button>
+  </div>
+</md-toolbar>
+<md-content class="main-content">
+  <div ui-view></div>
+</md-content>

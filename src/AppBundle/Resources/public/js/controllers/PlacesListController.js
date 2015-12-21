@@ -5,7 +5,7 @@ muralesLaPlata.controller('PlacesListController', [
   function ($scope, $location, PlaceService) {
 
     PlaceService.getAll().then(function (response) {
-      $scope.places = response.data;
+      $scope.places = response;
     });
 
     $scope.go = function ( id ) {

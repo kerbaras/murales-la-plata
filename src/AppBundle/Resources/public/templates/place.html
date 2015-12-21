@@ -1,1 +1,32 @@
-<h1>Hola</h1>
+<div layout="row" layout-wrap layout-align="center start">
+  <br />
+  <article ng-if="mural" class="mural" flex="90">
+    <header class="md-display-2">{{ mural.name }}</header>
+
+    <div class="carousel">
+      <ul rn-carousel rn-carousel-index="mural.carouselIndex" rn-carousel-auto-slide rn-carousel-pause-on-hover >
+        <li ng-repeat="photo in mural.photos track by $index" ng-class="'id-' + $index">
+          <div ng-style="{'background-image': 'url(' + photo + ')'}" class="bgimage"></div>
+        </li>
+      </ul>
+      <div rn-carousel-indicators ng-if="mural.photos.length > 1" slides="mural.photos" rn-carousel-index="mural.carouselIndex"></div>
+    </div>
+
+    <section class="content">
+      <h3 class="md-headline">{{ mural.address }}</h3>
+
+      <div class="md-subhead">{{ mural.description }}</div>
+    </section>
+
+  </article>
+
+  <section ng-if="!(mural || error)" flex="100">
+    <header class="md-display-2">
+      <md-progress-circular md-mode="indeterminate" md-diameter="120" style="margin: 0 auto;"></md-progress-circular>
+    <header>
+  </section>
+
+  <section ng-if="error" flex="90">
+    <header class="md-display-2">{{ error }}<header>
+  </section>
+</div>

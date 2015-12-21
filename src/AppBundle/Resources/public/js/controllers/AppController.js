@@ -1,22 +1,27 @@
 muralesLaPlata.controller('AppController', [
   '$scope',
   '$mdSidenav',
-  '$location',
-  function ($scope, $mdSidenav, $location) {
+  '$state',
+  function ($scope, $mdSidenav, $state) {
 
     $scope.menuItems = [
-      { name:"Inicio", icon: "home", url:"/" },
-      { name:"Murales", icon: "view_quilt", url:"/murales/" },
-      { name:"Nosotros", icon: "info", url:"/about" },
+      { name:"Inicio", icon: "home", state:"home" },
+      { name:"Murales", icon: "view_quilt", state:"placesList" },
+      { name:"Nosotros", icon: "info", state:"about" },
+    ];
+    $scope.adminMenu = [
+      { name:"Dashboard", icon: "dashboard", state:"admin_dashboard" },
+      { name:"Murales", icon: "view_quilt", state:"admin_murales_index" },
+      { name:"Usuarios", icon: "people", state:"placesList" }
     ];
 
     $scope.toggleSidebar = function() {
       $mdSidenav('left').toggle()
     };
 
-    $scope.go = function ( path ) {
+    $scope.go = function ( state ) {
       $mdSidenav('left').toggle();
-      $location.path( path );
+      $state.go( state );
     };
   }
 ]);

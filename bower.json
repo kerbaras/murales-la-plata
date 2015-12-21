@@ -27,6 +27,7 @@
     "angular-material": "~1.0.0",
     "angular-google-maps": "~2.2.1",
     "angular-messages": "~1.4.8",
-    "angular-resource": "~1.4.8"
+    "angular-resource": "~1.4.8",
+    "angular-carousel": "~1.0.1"
   }
 }

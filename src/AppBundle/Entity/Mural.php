@@ -277,7 +277,7 @@ class Mural
      *
      * @return Mural
      */
-    public function setEnabled(boolean $enabled)
+    public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
 

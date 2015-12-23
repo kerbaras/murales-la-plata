@@ -12,7 +12,7 @@
           md-search-text="searchText"
           md-selected-item-change="selectedItemChange(item)"
           md-items="item in murales | filter:searchText"
-          md-item-text="item.nombre"
+          md-item-text="item.name"
           md-min-length="0"
           md-floating-label="Buscar Mural">
           <md-item-template>
@@ -24,6 +24,6 @@
   </md-whiteframe>
 </section>
 <ui-gmap-google-map center="mapOptions.center" zoom="mapOptions.zoom" id="mainMap">
-  <ui-gmap-markers models="murales | filter:searchText" coords="'center'" title="'nombre'"
+  <ui-gmap-markers models="murales" coords="'center'" title="'name'"
                    options="markerOptions" click="markerClick"></ui-gmap-marker>
 </ui-gmap-google-map>
